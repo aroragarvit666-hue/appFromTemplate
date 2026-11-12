@@ -1,3 +1,17 @@
-extensions:
-  dx/excshell/1:
-    $include: src/dx-excshell-1/ext.config.yaml
+application:
+  actions: actions
+  web: web-src
+  runtimeManifest:
+    packages:
+      hello-world:
+        license: Apache-2.0
+        actions:
+          hello:
+            function: actions/hello/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+            annotations:
+              require-adobe-auth: true
+              final: true
